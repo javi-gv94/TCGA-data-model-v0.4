@@ -1,1 +1,1 @@
-# benchmarking-data-model-v0.4
+# benchmarking_data_model_v0.4
