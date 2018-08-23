@@ -26,20 +26,19 @@ for cancer in cancer_types:
             },
             "datalink": {
                 "uri": "https://portal.gdc.cancer.gov/",
-                "attrs": "url",
+                "attrs": "archive",
                 "validation_date": "2018-04-05T00:00:00Z",
                 "status": "ok"
             },
             "type":"participant",
             "access":"unknown",
-            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#Dataset",
+            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Dataset",
             "community_id":"TCGA",
             "depends_on":{
                "tool_id":"TCGA:" + participant,
                "rel_dataset_ids":[
                   {
                      "dataset_id":"TCGA:2018-04-05_" + cancer + "_I",
-                     "role":"input"
                   }
                ]
             },

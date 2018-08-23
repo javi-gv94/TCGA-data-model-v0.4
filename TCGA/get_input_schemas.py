@@ -20,7 +20,7 @@ for cancer in cancer_types:
          "type":"input",
          "datalink":{
             "uri":"https://portal.gdc.cancer.gov/",
-            "attrs":"url",
+            "attrs":"archive",
             "validation_date":"2018-04-05T00:00:00Z",
             "status":"ok"
          },
@@ -30,7 +30,7 @@ for cancer in cancer_types:
             "creation":"2018-04-05T00:00:00Z",
             "modification":"2018-04-05T14:00:00Z"
          },
-         "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#Dataset",
+         "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Dataset",
          "community_id":"TCGA",
          "version":"v12.0",
          "dataset_contact_ids":[

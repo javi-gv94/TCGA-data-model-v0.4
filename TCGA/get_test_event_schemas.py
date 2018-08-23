@@ -12,7 +12,7 @@ for cancer in cancer_types:
         info = {
 
             "_id":"TCGA:2018-04-05_" + cancer + "_testEvent_" + participant,
-            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#TestAction",
+            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
             "action_type":"TestEvent",
             "tool_id":"TCGA:" + participant,
             "received_datasets":[
@@ -35,12 +35,6 @@ for cancer in cancer_types:
                 "Matthew.Bailey",
                 "Eduard.Porta",
                 "Collin.Tokheim"
-            ],
-            "metadata":[
-               {
-                  "target":"",
-                  "description":""
-               }
             ]
         }
 

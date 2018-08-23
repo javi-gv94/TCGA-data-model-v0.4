@@ -12,7 +12,7 @@ for cancer in cancer_types:
         info = {
 
             "_id":"TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_TPR",
-            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#TestAction",
+            "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
             "action_type":"MetricsEvent",
             "tool_id":"TCGA:" + participant,
             "metrics_id":"TCGA:TPR",
@@ -39,12 +39,6 @@ for cancer in cancer_types:
                 "Matthew.Bailey",
                 "Eduard.Porta",
                 "Collin.Tokheim"
-            ],
-            "metadata":[
-               {
-                  "target":"",
-                  "description":""
-               }
             ]
         }
 
@@ -59,7 +53,7 @@ for cancer in cancer_types:
         info = {
 
             "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
-            "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#TestAction",
+            "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
             "action_type": "MetricsEvent",
             "tool_id": "TCGA:" + participant,
             "metrics_id": "TCGA:PPV",
@@ -86,12 +80,6 @@ for cancer in cancer_types:
                 "Matthew.Bailey",
                 "Eduard.Porta",
                 "Collin.Tokheim"
-            ],
-            "metadata": [
-                {
-                    "target": "",
-                    "description": ""
-                }
             ]
         }
 

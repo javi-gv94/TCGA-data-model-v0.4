@@ -1,7 +1,9 @@
 import os
-import io, json
 import pandas
 import math
+from datauri import DataURI
+import json
+
 cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA"]
 
 
@@ -79,6 +81,10 @@ for cancer in cancer_types:
 
     for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/input/participants"):
 
+        #get data-uri value of the 2 metrics
+        metric1 = DataURI.make('application/json', charset='us-ascii', base64=True, data=json.dumps(participants_datasets[participant][0]))
+        metric2 = DataURI.make('application/json', charset='us-ascii', base64=True, data=json.dumps(participants_datasets[participant][1]))
+
         #print metrics1 assesment file
         info = {
            "_id":"TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
@@ -89,8 +95,8 @@ for cancer in cancer_types:
            },
            "type":"assessment",
            "datalink":{
-              "uri":participants_datasets[participant][0],
-              "attrs":"uri",
+              "uri":metric1,
+              "attrs":"inline",
               "status":"ok",
               "validation_date":"2018-04-05T00:00:00Z"
            },
@@ -108,7 +114,7 @@ for cancer in cancer_types:
                  }
               ]
            },
-           "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#Dataset",
+           "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Dataset",
            "community_id":"TCGA",
            "version":"1",
            "name":"Assesment of Metric TPR in " + participant,
@@ -137,8 +143,8 @@ for cancer in cancer_types:
             },
             "type": "assessment",
             "datalink": {
-                "uri": participants_datasets[participant][1],
-                "attrs": "uri",
+                "uri": metric2,
+                "attrs": "inline",
                 "status": "ok",
                 "validation_date": "2018-04-05T00:00:00Z"
             },
@@ -148,15 +154,13 @@ for cancer in cancer_types:
                 "rel_dataset_ids": [
                     {
                         "dataset_id": "TCGA:2018-04-05_" + cancer + "_I",
-                        "role": "input"
                     },
                     {
                         "dataset_id": "TCGA:2018-04-05_" + cancer + "_M",
-                        "role": "metrics_reference"
                     }
                 ]
             },
-            "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#Dataset",
+            "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Dataset",
             "community_id": "TCGA",
             "version": "1",
             "name": "Assesment of Metric precision-PPV in " + participant,

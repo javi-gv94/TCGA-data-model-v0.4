@@ -24,7 +24,7 @@ for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/inp
              "tool_access_type_id":"other",
           }
        ],
-       "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4#Tool",
+       "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Tool",
        "status":"online"
     }
 

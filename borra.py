@@ -27,7 +27,7 @@ datasets = {
    }
 }
 
-json_data = json.dumps(datasets)
+json_data = json.dumps(45.61)
 
 made = DataURI.make('application/json', charset='us-ascii', base64=True, data=json_data)
 
