@@ -96,7 +96,7 @@ for cancer in cancer_types:
            "type":"assessment",
            "datalink":{
               "uri":metric1,
-              "attrs":"inline",
+              "attrs":["inline"],
               "status":"ok",
               "validation_date":"2018-04-05T00:00:00Z"
            },
@@ -106,11 +106,9 @@ for cancer in cancer_types:
               "rel_dataset_ids":[
                  {
                     "dataset_id":"TCGA:2018-04-05_" + cancer + "_I",
-                    "role":"input"
                  },
                  {
                     "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
-                    "role":"metrics_reference"
                  }
               ]
            },
@@ -144,7 +142,7 @@ for cancer in cancer_types:
             "type": "assessment",
             "datalink": {
                 "uri": metric2,
-                "attrs": "inline",
+                "attrs":["inline"],
                 "status": "ok",
                 "validation_date": "2018-04-05T00:00:00Z"
             },

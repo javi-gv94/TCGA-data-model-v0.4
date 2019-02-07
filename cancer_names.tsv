@@ -1,34 +1,35 @@
-BRCA	Breast Invasive Carcinoma
-GBM	Glioblastoma Multiforme
-OV	Ovarian Serous Cystadenocarcinoma
-LUAD	Lung Adenocarcinoma
-UCEC	Uterine Corpus Endometrial Carcinoma
-KIRC	Kidney Renal Clear Cell Carcinoma
-HNSC	Head and Neck Squamous Cell Carcinoma
-LGG	Brain Lower Grade Glioma
-THCA	Thyroid Carcinoma
-LUSC	Lung Squamous Cell Carcinoma
-PRAD	Prostate Adenocarcinoma
-SKCM	Skin Cutaneous Melanoma
-COAD	Colon Adenocarcinoma
-STAD	Stomach Adenocarcinoma
+symbol	name
+ALL	All cancer types
+ACC	Adrenocortical Carcinoma
 BLCA	Bladder Urothelial Carcinoma
-LIHC	Liver Hepatocellular Carcinoma
+BRCA	Breast Invasive Carcinoma
 CESC	Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma
-KIRP	Kidney Renal Papillary Cell Carcinoma
-SARC	Sarcoma
-LAML	Acute Myeloid Leukemia
+CHOL	Cholangiocarcinoma
+COAD	Colon Adenocarcinoma
+DLBC	Lymphoid Neoplasm Diffuse Large B-cell Lymphoma
 ESCA	Esophageal Carcinoma
+GBM	Glioblastoma Multiforme
+HNSC	Head and Neck Squamous Cell Carcinoma
+KICH	Kidney Chromophobe
+KIRC	Kidney Renal Clear Cell Carcinoma
+KIRP	Kidney Renal Papillary Cell Carcinoma
+LAML	Acute Myeloid Leukemia
+LGG	Brain Lower Grade Glioma
+LIHC	Liver Hepatocellular Carcinoma
+LUAD	Lung Adenocarcinoma
+LUSC	Lung Squamous Cell Carcinoma
+MESO	Mesothelioma
+OV	Ovarian Serous Cystadenocarcinoma
 PAAD	Pancreatic Adenocarcinoma
 PCPG	Pheochromocytoma and Paraganglioma
+PRAD	Prostate Adenocarcinoma
 READ	Rectum Adenocarcinoma
+SARC	Sarcoma
+SKCM	Skin Cutaneous Melanoma
+STAD	Stomach Adenocarcinoma
 TGCT	Testicular Germ Cell Tumors
+THCA	Thyroid Carcinoma
 THYM	Thymoma
-KICH	Kidney Chromophobe
-ACC	Adrenocortical Carcinoma
-MESO	Mesothelioma
-UVM	Uveal Melanoma
-DLBC	Lymphoid Neoplasm Diffuse Large B-cell Lymphoma
+UCEC	Uterine Corpus Endometrial Carcinoma
 UCS	Uterine Carcinosarcoma
-CHOL	Cholangiocarcinoma
-
+UVM	Uveal Melanoma

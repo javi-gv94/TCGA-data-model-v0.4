@@ -20,7 +20,7 @@ for cancer in cancer_types:
          "type":"input",
          "datalink":{
             "uri":"https://portal.gdc.cancer.gov/",
-            "attrs":"archive",
+            "attrs":["archive"],
             "validation_date":"2018-04-05T00:00:00Z",
             "status":"ok"
          },

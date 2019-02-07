@@ -13,9 +13,7 @@ for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/inp
        "tool_contact_id":[
           "Eduard.Porta"
        ],
-       "activation":{
-          "$date":"2018-04-05T00:00:00.000+0000"
-       },
+       "activation":"2018-04-05T00:00:00.000+0000",
        "references":[
           "10.1016/j.cell.2018.02.060"
        ],
@@ -25,7 +23,7 @@ for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/inp
           }
        ],
        "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Tool",
-       "status":"online"
+       "status":"unknown"
     }
 
     # print info

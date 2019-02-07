@@ -20,7 +20,7 @@ for cancer in cancer_types:
             "_id":"TCGA:2018-04-05_" + cancer + "_" + participant + "_Summary",
             "datalink":{
                "uri":"https://cancergenome.nih.gov/",
-               "attrs":"archive",
+               "attrs":["archive"],
                "validation_date":"2018-04-05T00:00:00Z",
                "status":"ok"
             },

@@ -11,7 +11,7 @@ for cancer in cancer_types:
 
         info = {
 
-            "_id": "TCGA:2018-04-05_" + cancer + "_do_summary",
+            "_id": "TCGA:2018-04-05_" + cancer + "_" + participant + "_do_summary",
             "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
             "tool_id": "TCGA:" + participant,
             "action_type": "StatisticsEvent",
@@ -37,7 +37,7 @@ for cancer in cancer_types:
                             "role": "challenge"
                         }
                    ],
-            "challenge_id": "TCGA:" + cancer + "_2018-04-05",
+            "challenge_id": "TCGA:2018-04-05_" + cancer,
             "dates":{
                "creation": "2018-04-05T00:00:00Z",
                "reception": "2018-04-05T00:00:00Z"

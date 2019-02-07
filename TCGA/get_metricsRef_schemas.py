@@ -18,7 +18,7 @@ for cancer in cancer_types:
         "_id":"TCGA:2018-04-05_" + cancer + "_M",
         "datalink":{
            "uri":"https://portal.gdc.cancer.gov/",
-           "attrs":"archive",
+           "attrs":["archive"],
            "validation_date":"2018-04-05T00:00:00Z",
            "status":"ok"
         },

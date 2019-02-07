@@ -40,10 +40,10 @@ for cancer in cancer_types:
             "role": "assessment"
         })
 
-    datasets.append({
-        "dataset_id": "TCGA:2018-04-05_" + cancer + "_Summary",
-        "role": "challenge"
-    })
+        datasets.append({
+            "dataset_id": "TCGA:2018-04-05_" + cancer + "_" + participant + "_Summary",
+            "role": "challenge"
+        })
 
     info = {
 
