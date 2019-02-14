@@ -9,7 +9,7 @@
     "is_automated": true,
     "name": "ActiveDriver",
     "references": [
-        "10.1016/j.cell.2018.02.060"
+        "10.1038/msb.2012.68"
     ],
     "status": "unknown",
     "tool_access": [
@@ -18,6 +18,6 @@
         }
     ],
     "tool_contact_id": [
-        "Eduard.Porta"
+        "Juri.Reimand"
     ]
 }

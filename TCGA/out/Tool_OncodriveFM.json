@@ -9,7 +9,7 @@
     "is_automated": true,
     "name": "OncodriveFM",
     "references": [
-        "10.1016/j.cell.2018.02.060"
+        "10.1186/s13059-016-0994-0"
     ],
     "status": "unknown",
     "tool_access": [
@@ -18,6 +18,6 @@
         }
     ],
     "tool_contact_id": [
-        "Eduard.Porta"
+        "Loris.Mularoni"
     ]
 }

@@ -9,7 +9,7 @@
     "is_automated": true,
     "name": "OncodriveCLUST",
     "references": [
-        "10.1016/j.cell.2018.02.060"
+        "10.1093/bioinformatics/btt395"
     ],
     "status": "unknown",
     "tool_access": [
@@ -18,6 +18,6 @@
         }
     ],
     "tool_contact_id": [
-        "Eduard.Porta"
+        "David.Tamborero"
     ]
 }

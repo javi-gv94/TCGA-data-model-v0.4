@@ -9,7 +9,7 @@
     "is_automated": true,
     "name": "MuSiC",
     "references": [
-        "10.1016/j.cell.2018.02.060"
+        "10.1101/gr.134635.111"
     ],
     "status": "unknown",
     "tool_access": [
@@ -18,6 +18,6 @@
         }
     ],
     "tool_contact_id": [
-        "Eduard.Porta"
+        "Nathan.Dees"
     ]
 }
