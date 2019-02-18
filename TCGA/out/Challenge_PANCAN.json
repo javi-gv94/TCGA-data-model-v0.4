@@ -1,5 +1,5 @@
 {
-    "_id": "OEBX002t000006",
+    "_id": "OEBX002t00000M",
     "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Challenge",
     "benchmarking_event_id": "OEBE002t000001",
     "challenge_contact_ids": [
@@ -15,8 +15,8 @@
         "modification": "2018-04-05T14:00:00Z"
     },
     "is_automated": false,
-    "name": "Cancer Driver Genes Prediction Benchmark in Colon Adenocarcinoma",
-    "orig_id": "TCGA:2018-04-05_COAD",
+    "name": "Cancer Driver Genes Prediction Benchmark in Previous PanCan Study",
+    "orig_id": "TCGA:2018-04-05_PANCAN",
     "participants": [
         {
             "tool_id": "OEBT002t000001"

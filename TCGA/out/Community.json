@@ -1,5 +1,5 @@
 {
-   "_id":"TCGA",
+   "_id":"OEBC002",
    "name":"The Cancer Genome Atlas",
    "acronym":"TCGA",
    "status":"active",
@@ -19,8 +19,11 @@
       "Eduard.Porta",
       "Collin.Tokheim"
    ],
-   "community_namespaces":[
-      "TCGA"
+   "keywords":[
+      "genomics",
+      "cancer",
+      "driver genes",
+      "mutations"
    ],
    "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Community"
 }
