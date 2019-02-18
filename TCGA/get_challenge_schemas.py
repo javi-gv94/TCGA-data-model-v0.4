@@ -24,7 +24,7 @@ def run(cancer_types, long_names):
 
        "_id":challenge_id,
        "orig_id": "TCGA:2018-04-05_" + cancer,
-       "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Challenge",
+       "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
        "name":"Cancer Driver Genes Prediction Benchmark in " + long_names[cancer],
        "benchmarking_event_id":"OEBE002t000001",
        "is_automated": False,
