@@ -26,7 +26,7 @@ def run(cancer_types, long_names):
        "orig_id": "TCGA:2018-04-05_" + cancer,
        "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
        "name":"Cancer Driver Genes Prediction Benchmark in " + long_names[cancer],
-       "benchmarking_event_id":"OEBE002t000001",
+       "benchmarking_event_id":"OEBE0020000001",
        "is_automated": False,
        "dates":{
           "creation":"2018-04-05T00:00:00Z",
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
                     "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
-                    "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM"]
+                    "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
 
     data = pandas.read_csv("../cancer_names.tsv", sep="\t",
                            comment="#", header=None)

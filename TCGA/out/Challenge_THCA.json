@@ -1,7 +1,7 @@
 {
     "_id": "OEBX002t00000U",
     "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
-    "benchmarking_event_id": "OEBE002t000001",
+    "benchmarking_event_id": "OEBE0020000001",
     "challenge_contact_ids": [
         "Matthew.Bailey",
         "Eduard.Porta",

@@ -1,0 +1,12 @@
+{
+"2020plus":"https://api.gdc.cancer.gov/data/5fa7121d-2f4b-40e5-822d-7b5c037a7641",
+"ActiveDriver":"https://api.gdc.cancer.gov/data/357d9cf5-b0ee-4a6e-851f-a58ff9ec716d",
+"compositeDriver":"https://api.gdc.cancer.gov/data/bee64811-952a-4fac-b011-9cd28c0bd8d1",
+"MuSiC":"https://api.gdc.cancer.gov/data/3b75b24b-4618-48bb-89fd-1bcae54934d7",
+"MutSig2CV":"https://api.gdc.cancer.gov/data/2e8d4650-5498-4288-a461-23667ff553e2",
+"OncodriveCLUST":"https://api.gdc.cancer.gov/data/bea607fe-0d7e-4a7a-a839-84f5ba0ee4ff",
+"OncodriveFM":"https://api.gdc.cancer.gov/data/12c99bfe-ec49-4c99-994a-1000a33280c9",
+"e-Driver":"https://api.gdc.cancer.gov/data/5bd22660-40a1-42ac-a791-0a8c5ef8f978"
+}
+
+
