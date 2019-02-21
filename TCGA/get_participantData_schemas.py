@@ -22,7 +22,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
 
             # get participant dataset id
             participant_data_id, last_participant_dataset = IDGenerator.get_new_OEB_id("002", "D", last_participant_dataset)
-
+            print participant_data_id
             info = {
                 "_id": participant_data_id,
                 "orig_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -59,7 +59,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
             }
 
             # print info
-            filename = "Dataset_participant_" + cancer + "_" + participant + ".json"
+            filename = "Dataset_participant_" + cancer + "_" + participant + "_" + participant_data_id + ".json"
             # print filename
 
             with open("out/" + filename, 'w') as f:

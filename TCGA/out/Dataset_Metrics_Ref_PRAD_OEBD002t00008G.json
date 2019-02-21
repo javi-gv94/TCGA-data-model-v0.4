@@ -1,7 +1,7 @@
 {
-    "_id": "TCGA:2018-04-05_BRCA_M",
-    "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Dataset",
-    "community_id": "TCGA",
+    "_id": "OEBD002t00008G",
+    "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
+    "community_id": "OEBC002",
     "datalink": {
         "attrs": [
             "archive"
@@ -22,12 +22,12 @@
     "depends_on": {
         "rel_dataset_ids": [
             {
-                "dataset_id": "TCGA:2018-04-05_BRCA_I"
+                "dataset_id": "OEBD002000000L"
             }
         ]
     },
-    "description": "List of genes (described by TCGA community) that can be used as 'gold standard' in Breast Invasive Carcinoma benchmark ",
-    "name": "Metrics Reference Dataset for Breast Invasive Carcinoma",
+    "description": "List of genes (described by TCGA community) that can be used as 'gold standard' in Prostate Adenocarcinoma benchmark ",
+    "name": "Metrics Reference Dataset for Prostate Adenocarcinoma",
     "type": "metrics_reference",
     "version": "unknown"
 }

@@ -48,7 +48,7 @@ def run(cancer_types, long_names):
         }
 
         # print info
-        filename = "Challenge_" + cancer + ".json"
+        filename = "Challenge_" + cancer + "_" + challenge_id + ".json"
         # print filename
 
         with open("out/" + filename, 'w') as f:

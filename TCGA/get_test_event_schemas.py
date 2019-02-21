@@ -62,7 +62,7 @@ def run(cancer_types, mongo_ids):
             }
 
             # print info
-            filename = "TestEvent_" + cancer + "_" + participant + ".json"
+            filename = "TestEvent_" + cancer + "_" + participant + "_" + Tevent_id + ".json"
             # print filename
 
             with open("out/" + filename, 'w') as f:
