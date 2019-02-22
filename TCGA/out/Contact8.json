@@ -6,6 +6,6 @@
       "loris.mularoni@irbbarcelona.org"
    ],
    "notes":"Unknown",
-   "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/Contact",
+   "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Contact",
    "contact_type":"person"
 }
