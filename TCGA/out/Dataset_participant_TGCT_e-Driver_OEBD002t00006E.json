@@ -2,6 +2,9 @@
     "_id": "OEBD002t00006E",
     "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
     "access": "unknown",
+    "challenge_id": [
+        "OEBX002t00000T"
+    ],
     "community_id": "OEBC002",
     "datalink": {
         "attrs": [

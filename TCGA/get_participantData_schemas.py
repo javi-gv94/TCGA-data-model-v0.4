@@ -5,12 +5,15 @@ import id_generator
 
 def run(cancer_types, long_names, mongo_ids, download_urls):
 
+    last_challenge = "0000000"
     last_participant_dataset = "0000000"
     last_tool = "0000008"
 
     IDGenerator = id_generator.IDGenerator()
 
     for cancer in cancer_types:
+
+        challenge_id, last_challenge = IDGenerator.get_new_OEB_id("002", "X", last_challenge)
 
         for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/input/participants"):
 
@@ -22,7 +25,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
 
             # get participant dataset id
             participant_data_id, last_participant_dataset = IDGenerator.get_new_OEB_id("002", "D", last_participant_dataset)
-            print participant_data_id
+
             info = {
                 "_id": participant_data_id,
                 "orig_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -42,6 +45,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
                 "access":"unknown",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
                 "community_id":"OEBC002",
+                "challenge_id": [challenge_id],
                 "depends_on":{
                    "tool_id":tool_id,
                    "rel_dataset_ids":[
