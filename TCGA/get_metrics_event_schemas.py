@@ -7,8 +7,10 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
 
     last_challenge = "0000000"
     last_event = "000007S"
-    last_dataset = "000007S"
+    last_participant_dataset = "0000000"
+    last_ref_dataset = "000007S"
     last_tool = "0000008"
+    last_assessment_dataset = "000008R"
 
     IDGenerator = id_generator.IDGenerator()
 
@@ -17,8 +19,8 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
 
         challenge_id, last_challenge = IDGenerator.get_new_OEB_id("002", "X", last_challenge)
 
-        # get metrics reference dataset id
-        ref_data_id, last_dataset = IDGenerator.get_new_OEB_id("002", "D", last_dataset)
+        # get metrics reference dataset id - incoming
+        ref_data_id, last_ref_dataset = IDGenerator.get_new_OEB_id("002", "D", last_ref_dataset)
 
         for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/input/participants"):
 
@@ -28,14 +30,20 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
             else:
                 tool_id, last_tool = IDGenerator.get_new_OEB_id("002", "T", last_tool)
 
-            # get metrics event id
-            Mevent_id, last_event = IDGenerator.get_new_OEB_id("002", "A", last_event)
 
-            # get participant dataset id
-            participant_data_id, last_dataset = IDGenerator.get_new_OEB_id("002", "D", last_dataset)
+            # get participant dataset id - incoming
+            participant_data_id, last_participant_dataset = IDGenerator.get_new_OEB_id("002", "D",
+                                                                                       last_participant_dataset)
 
 
             #print metrics1 metricsevent file
+
+            # get metrics 1 event id
+            Mevent_id, last_event = IDGenerator.get_new_OEB_id("002", "A", last_event)
+
+            # get metrics1 assessment dataset id - outgoing
+            A_data_id, last_assessment_dataset = IDGenerator.get_new_OEB_id("002", "D", last_assessment_dataset)
+
             info = {
 
                 "_id":Mevent_id,
@@ -54,7 +62,7 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
                         "role": "incoming"
                    },
                    {
-                      "dataset_id": "TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
+                      "dataset_id": A_data_id,
                       "role":"outgoing"
                    }
                 ],
@@ -71,35 +79,44 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
             }
 
             # print info
-            filename = "MetricsEvent_" + cancer + "_" + participant + "_TPR.json"
+            filename = "MetricsEvent_" + cancer + "_" + participant + "_TPR_" + Mevent_id + ".json"
             # print filename
 
-            # with open("out/" + filename, 'w') as f:
-            #     json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
+            with open("out/" + filename, 'w') as f:
+                json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
+            ###########################################################################################################
             # print metrics2 metricsevent file
+
+            # get metrics 2 event id
+            Mevent_id, last_event = IDGenerator.get_new_OEB_id("002", "A", last_event)
+
+            # get metrics2 assessment dataset id
+            A_data_id, last_assessment_dataset = IDGenerator.get_new_OEB_id("002", "D", last_assessment_dataset)
+
             info = {
 
-                "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
+                "_id": Mevent_id,
+                "orig_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type": "MetricsEvent",
-                "tool_id": "TCGA:" + participant,
-                "metrics_id": "OEBM0020000002",
-                "received_datasets": [
-                    {
-                        "dataset_id": "TCGA:2018-04-05_" + cancer + "_M",
-                        "role": "metrics_reference"
-                    },
-                    {
-                        "dataset_id": "TCGA:2018-04-05_" + cancer + "_P_" + participant,
-                        "role": "participant"
-                    },
-                    {
-                        "dataset_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
-                        "role": "assessment"
-                    }
+                "tool_id": tool_id,
+                "metrics_id": "OEBM0020000001",
+                "involved_datasets":[
+                   {
+                      "dataset_id":ref_data_id,
+                      "role":"incoming"
+                   },
+                   {
+                      "dataset_id": participant_data_id,
+                        "role": "incoming"
+                   },
+                   {
+                      "dataset_id": A_data_id,
+                      "role":"outgoing"
+                   }
                 ],
-                "challenge_id": "TCGA:2018-04-05_" + cancer,
+                "challenge_id": challenge_id,
                 "dates": {
                     "creation": "2018-04-05T00:00:00Z",
                     "reception": "2018-04-05T00:00:00Z"
@@ -112,11 +129,11 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
             }
 
             # print info
-            filename = "MetricsEvent_" + cancer + "_" + participant + "_precision.json"
+            filename = "MetricsEvent_" + cancer + "_" + participant + "_precision_" + Mevent_id + ".json"
             # print filename
 
-            # with open("out/" + filename, 'w') as f:
-            #     json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
+            with open("out/" + filename, 'w') as f:
+                json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 if __name__ == "__main__":
