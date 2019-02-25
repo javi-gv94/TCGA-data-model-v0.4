@@ -118,7 +118,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                },
                "type":"assessment",
                "datalink":{
-                  "uri": {"value": metric1},
+                  "uri": { "inline_data": {"value": metric1}},
                   "attrs":["inline"],
                   "status":"ok",
                   "validation_date":"2018-04-05T00:00:00Z"
@@ -171,7 +171,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                 },
                 "type": "assessment",
                 "datalink": {
-                    "uri": {"value": metric2},
+                    "uri": { "inline_data": {"value": metric2}},
                     "attrs":["inline"],
                     "status": "ok",
                     "validation_date": "2018-04-05T00:00:00Z"

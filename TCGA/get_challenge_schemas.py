@@ -6,16 +6,11 @@ import id_generator
 
 def run(cancer_types, long_names):
 
-    tools = []
-    last_used = "0000000"
 
     IDGenerator = id_generator.IDGenerator()
 
-    for participant in os.listdir("/home/jgarrayo/PycharmProjects/TCGA_benchmark/input/participants"):
-        tool_id, last_used = IDGenerator.get_new_OEB_id("002", "T", last_used)
-        tools.append({"tool_id":tool_id})
-
     last_used = "0000000"
+
     for cancer in cancer_types:
         # get schema alphanumeric id
         challenge_id, last_used = IDGenerator.get_new_OEB_id("002", "X", last_used)
@@ -35,15 +30,13 @@ def run(cancer_types, long_names):
           "benchmark_stop":"2018-04-05T02:00:00Z"
        },
        "url":"https://cancergenome.nih.gov/",
-       "community_id":"OEBC002",
-       "participants" :tools,
        "challenge_contact_ids":[
           "Matthew.Bailey",
           "Eduard.Porta",
           "Collin.Tokheim"
        ],
        "references":[
-          "10.1016/j.cell.2018.02.060"
+          "doi:10.1016/j.cell.2018.02.060"
        ]
         }
 

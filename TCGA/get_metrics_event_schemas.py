@@ -51,7 +51,6 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type":"MetricsEvent",
                 "tool_id":tool_id,
-                "metrics_id":"OEBM0020000002",
                 "involved_datasets":[
                    {
                       "dataset_id":ref_data_id,
@@ -101,7 +100,6 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type": "MetricsEvent",
                 "tool_id": tool_id,
-                "metrics_id": "OEBM0020000001",
                 "involved_datasets":[
                    {
                       "dataset_id":ref_data_id,

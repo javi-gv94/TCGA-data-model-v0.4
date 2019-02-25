@@ -21,7 +21,6 @@
             "role": "outgoing"
         }
     ],
-    "metrics_id": "OEBM0020000002",
     "orig_id": "TCGA:2018-04-05_BLCA_metricsEvent_MutSig2CV_TPR",
     "test_contact_ids": [
         "Matthew.Bailey",

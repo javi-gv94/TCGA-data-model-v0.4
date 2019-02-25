@@ -7,7 +7,6 @@
         "Eduard.Porta",
         "Collin.Tokheim"
     ],
-    "community_id": "OEBC002",
     "dates": {
         "benchmark_start": "2018-04-05T05:00:00Z",
         "benchmark_stop": "2018-04-05T02:00:00Z",
@@ -17,34 +16,8 @@
     "is_automated": false,
     "name": "Cancer Driver Genes Prediction Benchmark in Uterine Corpus Endometrial Carcinoma",
     "orig_id": "TCGA:2018-04-05_UCEC",
-    "participants": [
-        {
-            "tool_id": "OEBT002t000001"
-        },
-        {
-            "tool_id": "OEBT002t000002"
-        },
-        {
-            "tool_id": "OEBT002t000003"
-        },
-        {
-            "tool_id": "OEBT002t000004"
-        },
-        {
-            "tool_id": "OEBT002t000005"
-        },
-        {
-            "tool_id": "OEBT002t000006"
-        },
-        {
-            "tool_id": "OEBT002t000007"
-        },
-        {
-            "tool_id": "OEBT002t000008"
-        }
-    ],
     "references": [
-        "10.1016/j.cell.2018.02.060"
+        "doi:10.1016/j.cell.2018.02.060"
     ],
     "url": "https://cancergenome.nih.gov/"
 }

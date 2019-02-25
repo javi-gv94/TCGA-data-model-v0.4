@@ -11,7 +11,9 @@
         ],
         "status": "ok",
         "uri": {
-            "value": 0.5660377358490566
+            "inline_data": {
+                "value": 0.5660377358490566
+            }
         },
         "validation_date": "2018-04-05T00:00:00Z"
     },

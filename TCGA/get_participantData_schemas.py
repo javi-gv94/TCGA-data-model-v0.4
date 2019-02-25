@@ -42,7 +42,6 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
                     "status": "ok"
                 },
                 "type":"participant",
-                "access":"unknown",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
                 "community_id":"OEBC002",
                 "challenge_id": [challenge_id],
