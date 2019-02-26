@@ -51,10 +51,7 @@ def run(cancer_types, long_names, mongo_tool_ids):
                 "_id": challenge_data_id,
                 "orig_id":"TCGA:2018-04-05_" + cancer + "_" + participant + "_Summary",
                 "datalink":{
-                   "uri": { "inline_data": {"metricX": metric1, "metricY": metric2}},
-                  "attrs":["inline"],
-                   "validation_date":"2018-04-05T00:00:00Z",
-                   "status":"ok"
+                   "uri": { "inline_data": {"metricX": metric1, "metricY": metric2}}
                 },
                 "type":"challenge",
                 "version":"unknown",

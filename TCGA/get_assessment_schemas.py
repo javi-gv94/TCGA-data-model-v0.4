@@ -123,10 +123,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                },
                "type":"assessment",
                "datalink":{
-                  "uri": { "inline_data": {"value": metric1}},
-                  "attrs":["inline"],
-                  "status":"ok",
-                  "validation_date":"2018-04-05T00:00:00Z"
+                  "uri": { "inline_data": {"value": metric1}}
                },
                "depends_on":{
                   "tool_id":tool_id,
@@ -176,10 +173,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                 },
                 "type": "assessment",
                 "datalink": {
-                    "uri": { "inline_data": {"value": metric2}},
-                    "attrs":["inline"],
-                    "status": "ok",
-                    "validation_date": "2018-04-05T00:00:00Z"
+                    "uri": { "inline_data": {"value": metric2}}
                 },
                 "depends_on": {
                     "tool_id": tool_id,
@@ -277,10 +271,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
             },
             "type": "assessment",
             "datalink": {
-                "uri": {"inline_data": {"value": metric1}},
-                "attrs": ["inline"],
-                "status": "ok",
-                "validation_date": "2018-04-05T00:00:00Z"
+                "uri": {"inline_data": {"value": metric1}}
             },
             "depends_on": {
                 "tool_id": tool_id,
@@ -330,10 +321,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
             },
             "type": "assessment",
             "datalink": {
-                "uri": {"inline_data": {"value": metric2}},
-                "attrs": ["inline"],
-                "status": "ok",
-                "validation_date": "2018-04-05T00:00:00Z"
+                "uri": {"inline_data": {"value": metric2}}
             },
             "depends_on": {
                 "tool_id": tool_id,
