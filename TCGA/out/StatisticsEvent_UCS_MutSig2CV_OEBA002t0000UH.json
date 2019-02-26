@@ -1,6 +1,6 @@
 {
     "_id": "OEBA002t0000UH",
-    "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
+    "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
     "action_type": "StatisticsEvent",
     "challenge_id": "OEBX002t00000X",
     "dates": {

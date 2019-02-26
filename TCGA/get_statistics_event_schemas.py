@@ -41,7 +41,7 @@ def run (cancer_types, mongo_tool_ids):
 
                 "_id":Sevent_id,
                 "orig_id": "TCGA:2018-04-05_" + cancer + "_" + participant + "_do_summary",
-                "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/0.4/TestAction",
+                "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "tool_id": tool_id,
                 "action_type": "StatisticsEvent",
                 "involved_datasets": [
