@@ -4,7 +4,7 @@ import pandas
 import id_generator
 
 
-def run(cancer_types, long_names):
+def run(cancer_types, long_names, urls):
 
 
     IDGenerator = id_generator.IDGenerator()
@@ -20,6 +20,7 @@ def run(cancer_types, long_names):
        "_id":challenge_id,
        "orig_id": "TCGA:2018-04-05_" + cancer,
        "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
+       "acronym": cancer,
        "name":"Cancer Driver Genes Prediction Benchmark in " + long_names[cancer],
        "benchmarking_event_id":"OEBE0020000001",
        "is_automated": False,
@@ -29,7 +30,7 @@ def run(cancer_types, long_names):
           "benchmark_start":"2018-04-05T05:00:00Z",
           "benchmark_stop":"2018-04-05T02:00:00Z"
        },
-       "url":"https://cancergenome.nih.gov/",
+       "url":urls[cancer],
        "challenge_contact_ids":[
           "Matthew.Bailey",
           "Eduard.Porta",
@@ -59,10 +60,12 @@ if __name__ == "__main__":
                            comment="#", header=None)
 
     long_names = {}
+    urls = {}
     for index, row in data.iterrows():
         long_names[row[0]] = row[1]
+        urls[row[0]] = row[2]
 
-    run(cancer_types, long_names)
+    run(cancer_types, long_names, urls)
 
 
 #################################################################

@@ -1,36 +1,36 @@
-symbol	name
-ALL	All cancer types
-ACC	Adrenocortical Carcinoma
-BLCA	Bladder Urothelial Carcinoma
-BRCA	Breast Invasive Carcinoma
-CESC	Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma
-CHOL	Cholangiocarcinoma
-COAD	Colon Adenocarcinoma
-DLBC	Lymphoid Neoplasm Diffuse Large B-cell Lymphoma
-ESCA	Esophageal Carcinoma
-GBM	Glioblastoma Multiforme
-HNSC	Head and Neck Squamous Cell Carcinoma
-KICH	Kidney Chromophobe
-KIRC	Kidney Renal Clear Cell Carcinoma
-KIRP	Kidney Renal Papillary Cell Carcinoma
-LAML	Acute Myeloid Leukemia
-LGG	Brain Lower Grade Glioma
-LIHC	Liver Hepatocellular Carcinoma
-LUAD	Lung Adenocarcinoma
-LUSC	Lung Squamous Cell Carcinoma
-MESO	Mesothelioma
-OV	Ovarian Serous Cystadenocarcinoma
-PAAD	Pancreatic Adenocarcinoma
-PANCAN	Previous PanCan Study
-PCPG	Pheochromocytoma and Paraganglioma
-PRAD	Prostate Adenocarcinoma
-READ	Rectum Adenocarcinoma
-SARC	Sarcoma
-SKCM	Skin Cutaneous Melanoma
-STAD	Stomach Adenocarcinoma
-TGCT	Testicular Germ Cell Tumors
-THCA	Thyroid Carcinoma
-THYM	Thymoma
-UCEC	Uterine Corpus Endometrial Carcinoma
-UCS	Uterine Carcinosarcoma
-UVM	Uveal Melanoma
+symbol	name	url
+ALL	All cancer types	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers
+ACC	Adrenocortical Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/adrenocortical
+BLCA	Bladder Urothelial Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/bladder
+BRCA	Breast Invasive Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/breast-ductal
+CESC	Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/cervical
+CHOL	Cholangiocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/cholangiocarcinoma
+COAD	Colon Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/colorectal
+DLBC	Lymphoid Neoplasm Diffuse Large B-cell Lymphoma	https://gdc.cancer.gov/about-data/publications/DLBCL-2018
+ESCA	Esophageal Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/esophageal
+GBM	Glioblastoma Multiforme	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/glioblastoma
+HNSC	Head and Neck Squamous Cell Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/head-and-neck
+KICH	Kidney Chromophobe	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/renal-cell-chromophobe
+KIRC	Kidney Renal Clear Cell Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/renal-cell-clear-cell
+KIRP	Kidney Renal Papillary Cell Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/renal-cell-papillary
+LAML	Acute Myeloid Leukemia	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/acute-myeloid-leukemia
+LGG	Brain Lower Grade Glioma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/glioma
+LIHC	Liver Hepatocellular Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/liver
+LUAD	Lung Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/lung-adenocarcinoma
+LUSC	Lung Squamous Cell Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/lung-squamous
+MESO	Mesothelioma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/mesothelioma
+OV	Ovarian Serous Cystadenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/ovarian
+PAAD	Pancreatic Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/pancreatic
+PANCAN	Previous PanCan Study	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers
+PCPG	Pheochromocytoma and Paraganglioma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/paraganglioma
+PRAD	Prostate Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/prostate
+READ	Rectum Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/colorectal
+SARC	Sarcoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/sarcoma
+SKCM	Skin Cutaneous Melanoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/melanoma-skin
+STAD	Stomach Adenocarcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/stomach
+TGCT	Testicular Germ Cell Tumors	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/testicular-germ-cell
+THCA	Thyroid Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/thyroid
+THYM	Thymoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/thymoma
+UCEC	Uterine Corpus Endometrial Carcinoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/uterine
+UCS	Uterine Carcinosarcoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/uterine-carcinosarcoma
+UVM	Uveal Melanoma	https://www.cancer.gov/about-nci/organization/ccg/research/structural-genomics/tcga/studied-cancers/melanoma-eye
