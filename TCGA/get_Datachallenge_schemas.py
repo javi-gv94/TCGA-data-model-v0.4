@@ -40,18 +40,18 @@ def run(cancer_types, long_names, mongo_tool_ids):
             # read files which containes metrics values
             with io.open("out/Dataset_assessment_" + cancer + "_" + participant + "_TPR_" + A_data_id_TPR + ".json", mode='r', encoding="utf-8") as f:
                 assess_file = json.load(f)
-                metric1 = assess_file["datalink"]["uri"]["inline_data"]["value"]
+                metric1 = assess_file["datalink"]["inline_data"]["value"]
 
             with io.open("out/Dataset_assessment_" + cancer + "_" + participant + "_precision_" + A_data_id_precision + ".json", mode='r', encoding="utf-8") as f:
                 assess_file = json.load(f)
-                metric2 = assess_file["datalink"]["uri"]["inline_data"]["value"]
+                metric2 = assess_file["datalink"]["inline_data"]["value"]
 
             info = {
 
                 "_id": challenge_data_id,
                 "orig_id":"TCGA:2018-04-05_" + cancer + "_" + participant + "_Summary",
                 "datalink":{
-                   "uri": { "inline_data": {"metricX": metric1, "metricY": metric2}}
+                   "inline_data": {"metricX": metric1, "metricY": metric2}
                 },
                 "type":"challenge",
                 "version":"unknown",
