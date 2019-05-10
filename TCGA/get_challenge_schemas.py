@@ -14,11 +14,9 @@ def run(cancer_types, long_names, urls):
     for cancer in cancer_types:
         # get schema alphanumeric id
         challenge_id, last_used = IDGenerator.get_new_OEB_id("002", "X", last_used)
-
         info = {
 
-       "_id":challenge_id,
-       "orig_id": "TCGA:2018-04-05_" + cancer,
+       "_id":"TCGA:2018-04-05_" + cancer,
        "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
        "acronym": cancer,
        "name":"Cancer Driver Genes Prediction Benchmark in " + long_names[cancer],
@@ -30,6 +28,35 @@ def run(cancer_types, long_names, urls):
           "benchmark_start":"2018-04-05T05:00:00Z",
           "benchmark_stop":"2018-04-05T02:00:00Z"
        },
+       "metrics_categories": [
+
+           {
+               "category": "assessment",
+               "description": "metrics used to benchmark the performance of cancer genes predictors in Challenge "+ long_names[cancer] +
+                                ", generating the assessment datatseta",
+               "metrics" : [
+                   {
+                       "metrics_id": "OEBM0020000002",
+                       "tool_id": "TCGA:compute_TPR"
+                   },
+                   {
+                       "metrics_id": "OEBM0020000001",
+                       "tool_id": "TCGA:compute_precision"
+                   }
+               ]
+           },
+           {
+               "category": "aggregation",
+               "description": "metrics used to aggregate the assessment data of all cancer genes predictors participating in challenge " +
+                              long_names[cancer] + " in a consolidated Aggregation dataset",
+               "metrics": [
+                   {
+                       "metrics_id": "TCGA:aggregation",
+                       "tool_id": "TCGA:aggregate_benchmark"
+                   }
+               ]
+           }
+       ],
        "url":urls[cancer],
        "challenge_contact_ids":[
           "Matthew.Bailey",
@@ -53,7 +80,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
 
     data = pandas.read_csv("../cancer_names.tsv", sep="\t",

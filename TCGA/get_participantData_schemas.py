@@ -3,7 +3,7 @@ import io, json
 import pandas
 import id_generator
 
-def run(cancer_types, long_names, mongo_ids, download_urls):
+def run(cancer_types, long_names, mongo_ids, tool_contact, download_urls):
 
     last_challenge = "0000000"
     last_participant_dataset = "0000000"
@@ -27,8 +27,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
             participant_data_id, last_participant_dataset = IDGenerator.get_new_OEB_id("002", "D", last_participant_dataset)
 
             info = {
-                "_id": participant_data_id,
-                "orig_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
+                "_id": "TCGA:2018-04-05_" + cancer + "_P_" + participant,
                 "name":"Cancer Driver Genes in " + long_names[cancer],
                 "description":"List of Cancer Driver Genes predicted by tool " + participant + " in " + long_names[cancer],
                 "dates":{
@@ -42,9 +41,10 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
                     "status": "ok"
                 },
                 "type":"participant",
+                "visibility": "public",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-                "community_id":"OEBC002",
-                "challenge_id": [challenge_id],
+                "community_ids":["OEBC002"],
+                "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                 "depends_on":{
                    "tool_id":tool_id,
                    "rel_dataset_ids":[
@@ -55,9 +55,7 @@ def run(cancer_types, long_names, mongo_ids, download_urls):
                 },
                 "version":"unknown",
                 "dataset_contact_ids":[
-                   "Matthew.Bailey",
-                  "Eduard.Porta",
-                  "Collin.Tokheim"
+                   tool_contact[participant]
                 ]
             }
 
@@ -73,7 +71,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
 
     data = pandas.read_csv("../cancer_names.tsv", sep="\t",
@@ -87,8 +85,12 @@ if __name__ == "__main__":
     with io.open("../mongo_tools_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_ids = json.load(f)
 
+    # read file which containes tool contact
+    with io.open("../tools_contacts.txt", mode='r', encoding="utf-8") as f:
+        tool_contact = json.load(f)
+
     # read file which contains download links with participant predictions
     with io.open("../participant_data_urls.txt", mode='r', encoding="utf-8") as f:
         download_urls = json.load(f)
 
-    run(cancer_types, long_names, mongo_ids, download_urls)
+    run(cancer_types, long_names, mongo_ids, tool_contact, download_urls)

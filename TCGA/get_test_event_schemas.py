@@ -33,8 +33,7 @@ def run(cancer_types, mongo_ids):
             info = {
 
 
-                "_id": Tevent_id,
-                "orig_id":"TCGA:2018-04-05_" + cancer + "_testEvent_" + participant,
+                "_id": "TCGA:2018-04-05_" + cancer + "_testEvent_" + participant,
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type":"TestEvent",
                 "tool_id":tool_id,
@@ -44,12 +43,12 @@ def run(cancer_types, mongo_ids):
                       "role": "incoming"
                    },
                    {
-                        "dataset_id": participant_data_id,
+                        "dataset_id": "TCGA:2018-04-05_" + cancer + "_P_" + participant,
                         "role": "outgoing"
                    }
 
                 ],
-                "challenge_id": challenge_id,
+                "challenge_id": "TCGA:2018-04-05_" + cancer,
                 "dates":{
                    "creation": "2018-04-05T00:00:00Z",
                    "reception": "2018-04-05T00:00:00Z"
@@ -73,7 +72,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
     #read file which containes tool ids already pushed to mongo
     with io.open("../mongo_tools_ids.txt", mode='r', encoding="utf-8") as f:

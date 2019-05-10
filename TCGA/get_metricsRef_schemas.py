@@ -16,7 +16,7 @@ def run(cancer_types, long_names):
         data_id, last_dataset = IDGenerator.get_new_OEB_id("002", "D", last_dataset)
 
         info = {
-            "_id":data_id,
+            "_id":"TCGA:2018-04-05_" + cancer + "_M",
             "datalink":{
                "uri":"https://portal.gdc.cancer.gov/",
                "attrs":["archive"],
@@ -24,6 +24,8 @@ def run(cancer_types, long_names):
                "status":"ok"
             },
             "type":"metrics_reference",
+            "challenge_ids": ["TCGA:2018-04-05_" + cancer],
+            "visibility": "public",
             "version":"unknown",
             "name":"Metrics Reference Dataset for " + long_names[cancer],
             "description":"List of genes (described by TCGA community) that can be used as 'gold standard' in " + long_names[cancer] + " benchmark ",
@@ -39,7 +41,7 @@ def run(cancer_types, long_names):
                ]
             },
             "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_id":"OEBC002",
+            "community_ids":["OEBC002"],
             "dataset_contact_ids":[
                "Matthew.Bailey",
                "Eduard.Porta",
@@ -58,7 +60,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
 
     data = pandas.read_csv("../cancer_names.tsv", sep="\t",

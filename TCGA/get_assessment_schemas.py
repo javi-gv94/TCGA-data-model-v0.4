@@ -63,7 +63,7 @@ def compute_metrics(input_dir, gold_standard, cancer_type, all_cancer_genes):
 
     return participants_datasets, all_cancer_genes
 
-def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
+def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids):
 
     ## create dict that will store info about all combined cancer types
     all_cancer_genes = {}
@@ -114,14 +114,14 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
             A_data_id, last_assessment_dataset = IDGenerator.get_new_OEB_id("002", "D", last_assessment_dataset)
 
             info = {
-                "_id":A_data_id,
-               "orig_id":"TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
+                "_id":"TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
                "description":"Assessment dataset for applying Metric 'True Positive Rate' to " + participant + " predictions in " + long_names[cancer],
                "dates":{
                   "creation":"2018-04-05T00:00:00Z",
                   "modification":"2018-04-05T14:00:00Z"
                },
                "type":"assessment",
+                "visibility": "public",
                "datalink":{
                   "inline_data": {"value": metric1}
                },
@@ -130,22 +130,20 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                   "metrics_id":"OEBM0020000002",
                   "rel_dataset_ids":[
                      {
-                        "dataset_id":participant_data_id,
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
                      },
                      {
-                        "dataset_id":ref_data_id,
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
                      }
                   ]
                },
                "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-               "community_id":"OEBC002",
-               "challenge_id": [challenge_id],
+               "community_ids":["OEBC002"],
+               "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                "version":"1",
                "name":"Assesment of Metric TPR in " + participant,
                "dataset_contact_ids":[
-                  "Matthew.Bailey",
-                  "Eduard.Porta",
-                  "Collin.Tokheim"
+                  tool_contact[participant]
                ]
             }
 
@@ -163,8 +161,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
 
             info = {
 
-                "_id": A_data_id,
-                "orig_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
+                "_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
                 "description": "Assessment dataset for applying Metric 'Positive Predictive Value' to " + participant + " predictions in " +
                                long_names[cancer],
                 "dates": {
@@ -172,6 +169,7 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                     "modification": "2018-04-05T14:00:00Z"
                 },
                 "type": "assessment",
+                "visibility": "public",
                 "datalink": {
                     "inline_data": {"value": metric2}
                 },
@@ -180,22 +178,20 @@ def run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids):
                     "metrics_id": "OEBM0020000001",
                     "rel_dataset_ids":[
                      {
-                        "dataset_id":participant_data_id,
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
                      },
                      {
-                        "dataset_id":ref_data_id,
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
                      }
                   ]
                 },
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-                "community_id": "OEBC002",
-                "challenge_id": [challenge_id],
+                "community_ids":["OEBC002"],
+                "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                 "version": "1",
                 "name": "Assesment of Metric precision-PPV in " + participant,
                 "dataset_contact_ids": [
-                    "Matthew.Bailey",
-                    "Eduard.Porta",
-                    "Collin.Tokheim"
+                    tool_contact[participant]
                 ]
             }
 
@@ -261,8 +257,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
         A_data_id, last_assessment_dataset = IDGenerator.get_new_OEB_id("002", "D", last_assessment_dataset)
 
         info = {
-            "_id": A_data_id,
-            "orig_id": "TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
+            "_id": "TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
             "description": "Assessment dataset for applying Metric 'True Positive Rate' to " + participant + " predictions in " +
                            long_names[cancer],
             "dates": {
@@ -270,30 +265,29 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                 "modification": "2018-04-05T14:00:00Z"
             },
             "type": "assessment",
+            "visibility": "public",
             "datalink": {
                 "inline_data": {"value": metric1}
             },
             "depends_on": {
                 "tool_id": tool_id,
                 "metrics_id": "OEBM0020000002",
-                "rel_dataset_ids": [
-                    {
-                        "dataset_id": participant_data_id,
-                    },
-                    {
-                        "dataset_id": ref_data_id,
-                    }
-                ]
+                "rel_dataset_ids":[
+                     {
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
+                     },
+                     {
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
+                     }
+                  ]
             },
             "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_id": "OEBC002",
-            "challenge_id": [challenge_id],
+            "community_ids":["OEBC002"],
+            "challenge_ids": ["TCGA:2018-04-05_" + cancer],
             "version": "1",
             "name": "Assesment of Metric TPR in " + participant,
             "dataset_contact_ids": [
-                "Matthew.Bailey",
-                "Eduard.Porta",
-                "Collin.Tokheim"
+                tool_contact[participant]
             ]
         }
 
@@ -311,8 +305,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
 
         info = {
 
-            "_id": A_data_id,
-            "orig_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
+            "_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
             "description": "Assessment dataset for applying Metric 'Positive Predictive Value' to " + participant + " predictions in " +
                            long_names[cancer],
             "dates": {
@@ -320,30 +313,29 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                 "modification": "2018-04-05T14:00:00Z"
             },
             "type": "assessment",
+            "visibility": "public",
             "datalink": {
                 "inline_data": {"value": metric2}
             },
             "depends_on": {
                 "tool_id": tool_id,
                 "metrics_id": "OEBM0020000001",
-                "rel_dataset_ids": [
-                    {
-                        "dataset_id": participant_data_id,
-                    },
-                    {
-                        "dataset_id": ref_data_id,
-                    }
-                ]
+                "rel_dataset_ids":[
+                     {
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
+                     },
+                     {
+                        "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
+                     }
+                  ]
             },
             "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_id": "OEBC002",
-            "challenge_id": [challenge_id],
+            "community_ids":["OEBC002"],
+            "challenge_ids": ["TCGA:2018-04-05_" + cancer],
             "version": "1",
             "name": "Assesment of Metric precision-PPV in " + participant,
             "dataset_contact_ids": [
-                "Matthew.Bailey",
-                "Eduard.Porta",
-                "Collin.Tokheim"
+                tool_contact[participant]
             ]
         }
 
@@ -361,7 +353,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM"]
 
     data = pandas.read_csv("../cancer_names.tsv", sep="\t",
@@ -375,9 +367,13 @@ if __name__ == "__main__":
     with io.open("../mongo_tools_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_tool_ids = json.load(f)
 
+    # read file which containes tool contact
+    with io.open("../tools_contacts.txt", mode='r', encoding="utf-8") as f:
+        tool_contact = json.load(f)
+
     # read file which containes dataset ids already pushed to mongo
     with io.open("../reference_datasets_mongo_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_datRef_ids = json.load(f)
 
 
-    run(cancer_types, long_names, mongo_tool_ids, mongo_datRef_ids)
+    run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids)

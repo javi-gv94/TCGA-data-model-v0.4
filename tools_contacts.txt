@@ -1,0 +1,12 @@
+{
+
+"2020plus":"Collin.Tokheim",
+"compositeDriver":"Matthew.Bailey",
+"ActiveDriver":"Juri.Reimand",
+"e-Driver":"Eduard.Porta",
+"MuSiC":"Nathan.Dees",
+"MutSig2CV":"Eduard.Porta",
+"OncodriveFM":"Loris.Mularoni",
+"OncodriveCLUST":"David.Tamborero"
+}
+

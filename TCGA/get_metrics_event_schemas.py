@@ -46,26 +46,25 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
 
             info = {
 
-                "_id":Mevent_id,
-                "orig_id":"TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_TPR",
+                "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_TPR",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type":"MetricsEvent",
                 "tool_id":tool_id,
                 "involved_datasets":[
                    {
-                      "dataset_id":ref_data_id,
+                      "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
                       "role":"incoming"
                    },
                    {
-                      "dataset_id": participant_data_id,
+                      "dataset_id": "TCGA:2018-04-05_" + cancer + "_P_" + participant,
                         "role": "incoming"
                    },
                    {
-                      "dataset_id": A_data_id,
+                      "dataset_id": "TCGA:2018-04-05_" + cancer + "_A_TPR_" + participant,
                       "role":"outgoing"
                    }
                 ],
-                "challenge_id": challenge_id,
+                "challenge_id": "TCGA:2018-04-05_" + cancer,
                 "dates":{
                    "creation": "2018-04-05T00:00:00Z",
                    "reception": "2018-04-05T00:00:00Z"
@@ -95,26 +94,25 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
 
             info = {
 
-                "_id": Mevent_id,
-                "orig_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
+                "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type": "MetricsEvent",
                 "tool_id": tool_id,
                 "involved_datasets":[
                    {
-                      "dataset_id":ref_data_id,
+                      "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
                       "role":"incoming"
                    },
                    {
-                      "dataset_id": participant_data_id,
+                      "dataset_id": "TCGA:2018-04-05_" + cancer + "_P_" + participant,
                         "role": "incoming"
                    },
                    {
-                      "dataset_id": A_data_id,
+                      "dataset_id": "TCGA:2018-04-05_" + cancer + "_A_precision_" + participant,
                       "role":"outgoing"
                    }
                 ],
-                "challenge_id": challenge_id,
+                "challenge_id": "TCGA:2018-04-05_" + cancer,
                 "dates": {
                     "creation": "2018-04-05T00:00:00Z",
                     "reception": "2018-04-05T00:00:00Z"
@@ -138,7 +136,7 @@ if __name__ == "__main__":
 
 
     cancer_types = ["ACC", "BLCA", "BRCA", "CESC", "CHOL", "COAD", "DLBC", "ESCA", "GBM", "HNSC", "KICH", "KIRC",
-                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PANCAN", "PCPG", "PRAD",
+                    "KIRP", "LAML", "LGG", "LIHC", "LUAD", "LUSC", "MESO", "OV", "PAAD", "PCPG", "PRAD",
                     "READ", "SARC", "SKCM", "STAD", "TGCT", "THCA", "THYM", "UCEC", "UCS", "UVM", "ALL"]
 
     #read file which containes tool ids already pushed to mongo
