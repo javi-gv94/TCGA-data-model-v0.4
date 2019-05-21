@@ -63,7 +63,7 @@ def compute_metrics(input_dir, gold_standard, cancer_type, all_cancer_genes):
 
     return participants_datasets, all_cancer_genes
 
-def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids):
+def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids, out_dir):
 
     ## create dict that will store info about all combined cancer types
     all_cancer_genes = {}
@@ -126,8 +126,8 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
                   "inline_data": {"value": metric1}
                },
                "depends_on":{
-                  "tool_id":tool_id,
-                  "metrics_id":"OEBM0020000002",
+                  "tool_id":"TCGA:" + participant,
+                  "metrics_id":"TCGA:TPR",
                   "rel_dataset_ids":[
                      {
                         "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -138,7 +138,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
                   ]
                },
                "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-               "community_ids":["OEBC002"],
+               "community_ids":["OEBC001"],
                "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                "version":"1",
                "name":"Assesment of Metric TPR in " + participant,
@@ -151,7 +151,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
             filename = "Dataset_assessment_" + cancer + "_" + participant + "_TPR_" + A_data_id + ".json"
             print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
             # print metrics2 assessment file
@@ -174,8 +174,8 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
                     "inline_data": {"value": metric2}
                 },
                 "depends_on": {
-                    "tool_id": tool_id,
-                    "metrics_id": "OEBM0020000001",
+                    "tool_id": "TCGA:" + participant,
+                    "metrics_id": "TCGA:precision",
                     "rel_dataset_ids":[
                      {
                         "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -186,7 +186,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
                   ]
                 },
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-                "community_ids":["OEBC002"],
+                "community_ids":["OEBC001"],
                 "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                 "version": "1",
                 "name": "Assesment of Metric precision-PPV in " + participant,
@@ -199,14 +199,14 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids
             filename = "Dataset_assessment_" + cancer + "_" + participant + "_precision_" + A_data_id + ".json"
             print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
-    get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, last_participant_dataset, last_tool)
+    get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, last_participant_dataset, last_tool, out_dir)
 
 
-def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, last_participant_dataset, last_tool):
+def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, last_participant_dataset, last_tool, out_dir):
 
 
     # plot chart for results across all cancer types
@@ -270,8 +270,8 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                 "inline_data": {"value": metric1}
             },
             "depends_on": {
-                "tool_id": tool_id,
-                "metrics_id": "OEBM0020000002",
+                "tool_id": "TCGA:" + participant,
+                "metrics_id": "TCGA:TPR",
                 "rel_dataset_ids":[
                      {
                         "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -282,7 +282,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                   ]
             },
             "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_ids":["OEBC002"],
+            "community_ids":["OEBC001"],
             "challenge_ids": ["TCGA:2018-04-05_" + cancer],
             "version": "1",
             "name": "Assesment of Metric TPR in " + participant,
@@ -295,7 +295,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
         filename = "Dataset_assessment_" + cancer + "_" + participant + "_TPR_" + A_data_id + ".json"
         print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
         # print metrics2 assessment file
@@ -318,8 +318,8 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                 "inline_data": {"value": metric2}
             },
             "depends_on": {
-                "tool_id": tool_id,
-                "metrics_id": "OEBM0020000001",
+                "tool_id": "TCGA:" + participant,
+                "metrics_id": "TCGA:precision",
                 "rel_dataset_ids":[
                      {
                         "dataset_id":"TCGA:2018-04-05_" + cancer + "_P_" + participant,
@@ -330,7 +330,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
                   ]
             },
             "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_ids":["OEBC002"],
+            "community_ids":["OEBC001"],
             "challenge_ids": ["TCGA:2018-04-05_" + cancer],
             "version": "1",
             "name": "Assesment of Metric precision-PPV in " + participant,
@@ -343,7 +343,7 @@ def get_metrics_across_all_cancers(all_cancer_genes, last_assessment_dataset, la
         filename = "Dataset_assessment_" + cancer + "_" + participant + "_precision_" + A_data_id + ".json"
         print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -375,5 +375,10 @@ if __name__ == "__main__":
     with io.open("../reference_datasets_mongo_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_datRef_ids = json.load(f)
 
+    # Assuring the output directory does exist
+    out_dir = "out/assessment_datasets/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
 
-    run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids)
+
+    run(cancer_types, long_names, mongo_tool_ids, tool_contact, mongo_datRef_ids, out_dir)

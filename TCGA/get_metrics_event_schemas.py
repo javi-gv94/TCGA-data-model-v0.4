@@ -3,7 +3,7 @@ import io, json
 import id_generator
 
 
-def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
+def run(cancer_types, mongo_tool_ids, mongo_datRef_ids, out_dir):
 
     last_challenge = "0000000"
     last_event = "000007S"
@@ -49,7 +49,7 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
                 "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_TPR",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type":"MetricsEvent",
-                "tool_id":tool_id,
+                "tool_id":"TCGA:" + participant,
                 "involved_datasets":[
                    {
                       "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
@@ -80,7 +80,7 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
             filename = "MetricsEvent_" + cancer + "_" + participant + "_TPR_" + Mevent_id + ".json"
             # print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
             ###########################################################################################################
@@ -97,7 +97,7 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
                 "_id": "TCGA:2018-04-05_" + cancer + "_metricsEvent_" + participant + "_precision",
                 "_schema": "https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type": "MetricsEvent",
-                "tool_id": tool_id,
+                "tool_id": "TCGA:" + participant,
                 "involved_datasets":[
                    {
                       "dataset_id":"TCGA:2018-04-05_" + cancer + "_M",
@@ -128,7 +128,7 @@ def run(cancer_types, mongo_tool_ids, mongo_datRef_ids):
             filename = "MetricsEvent_" + cancer + "_" + participant + "_precision_" + Mevent_id + ".json"
             # print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -147,5 +147,10 @@ if __name__ == "__main__":
     with io.open("../reference_datasets_mongo_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_datRef_ids = json.load(f)
 
+    # Assuring the output directory does exist
+    out_dir = "out/metrics_events/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
 
-    run(cancer_types, mongo_tool_ids, mongo_datRef_ids)
+
+    run(cancer_types, mongo_tool_ids, mongo_datRef_ids, out_dir)

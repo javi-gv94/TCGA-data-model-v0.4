@@ -4,7 +4,7 @@ import pandas
 import id_generator
 
 
-def run(cancer_types, long_names, urls):
+def run(cancer_types, long_names, urls, out_dir):
 
 
     IDGenerator = id_generator.IDGenerator()
@@ -20,7 +20,7 @@ def run(cancer_types, long_names, urls):
        "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Challenge",
        "acronym": cancer,
        "name":"Cancer Driver Genes Prediction Benchmark in " + long_names[cancer],
-       "benchmarking_event_id":"OEBE0020000001",
+       "benchmarking_event_id":"TCGA:2018-04-05",
        "is_automated": False,
        "dates":{
           "creation":"2018-04-05T00:00:00Z",
@@ -36,11 +36,11 @@ def run(cancer_types, long_names, urls):
                                 ", generating the assessment datatseta",
                "metrics" : [
                    {
-                       "metrics_id": "OEBM0020000002",
+                       "metrics_id": "TCGA:TPR",
                        "tool_id": "TCGA:compute_TPR"
                    },
                    {
-                       "metrics_id": "OEBM0020000001",
+                       "metrics_id": "TCGA:precision",
                        "tool_id": "TCGA:compute_precision"
                    }
                ]
@@ -72,7 +72,7 @@ def run(cancer_types, long_names, urls):
         filename = "Challenge_" + cancer + "_" + challenge_id + ".json"
         # print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -92,7 +92,12 @@ if __name__ == "__main__":
         long_names[row[0]] = row[1]
         urls[row[0]] = row[2]
 
-    run(cancer_types, long_names, urls)
+    # Assuring the output directory does exist
+    out_dir = "out/Challenges/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    run(cancer_types, long_names, urls, out_dir)
 
 
 #################################################################

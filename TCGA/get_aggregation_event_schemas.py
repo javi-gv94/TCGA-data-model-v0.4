@@ -4,7 +4,7 @@ import id_generator
 import pandas
 
 
-def run (cancer_types):
+def run (cancer_types, out_dir):
 
     last_challenge = "0000000"
     last_event = "00000NC"
@@ -65,7 +65,7 @@ def run (cancer_types):
         filename = "AggregationEvent_" + cancer + "_" + Sevent_id + ".json"
         # print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -84,5 +84,9 @@ if __name__ == "__main__":
     with io.open("../mongo_tools_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_ids = json.load(f)
 
+    # Assuring the output directory does exist
+    out_dir = "out/aggregation_events/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
 
-    run(cancer_types)
+    run(cancer_types, out_dir)

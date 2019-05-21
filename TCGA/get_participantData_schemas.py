@@ -3,7 +3,7 @@ import io, json
 import pandas
 import id_generator
 
-def run(cancer_types, long_names, mongo_ids, tool_contact, download_urls):
+def run(cancer_types, long_names, mongo_ids, tool_contact, download_urls, out_dir):
 
     last_challenge = "0000000"
     last_participant_dataset = "0000000"
@@ -43,13 +43,13 @@ def run(cancer_types, long_names, mongo_ids, tool_contact, download_urls):
                 "type":"participant",
                 "visibility": "public",
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-                "community_ids":["OEBC002"],
+                "community_ids":["OEBC001"],
                 "challenge_ids": ["TCGA:2018-04-05_" + cancer],
                 "depends_on":{
-                   "tool_id":tool_id,
+                   "tool_id":"TCGA:" + participant,
                    "rel_dataset_ids":[
                       {
-                         "dataset_id":"OEBD002000000L",
+                         "dataset_id": "TCGA:2018-04-05_input",
                       }
                    ]
                 },
@@ -63,7 +63,7 @@ def run(cancer_types, long_names, mongo_ids, tool_contact, download_urls):
             filename = "Dataset_participant_" + cancer + "_" + participant + "_" + participant_data_id + ".json"
             # print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -93,4 +93,9 @@ if __name__ == "__main__":
     with io.open("../participant_data_urls.txt", mode='r', encoding="utf-8") as f:
         download_urls = json.load(f)
 
-    run(cancer_types, long_names, mongo_ids, tool_contact, download_urls)
+    # Assuring the output directory does exist
+    out_dir = "out/participant_datasets/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    run(cancer_types, long_names, mongo_ids, tool_contact, download_urls,out_dir)

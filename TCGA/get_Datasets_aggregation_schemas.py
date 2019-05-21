@@ -4,7 +4,7 @@ import pandas
 import id_generator
 
 
-def run(cancer_types, long_names, mongo_tool_ids, tool_contact):
+def run(cancer_types, long_names, mongo_tool_ids, tool_contact, out_dir):
 
     last_challenge = "0000000"
     last_tool = "0000008"
@@ -51,16 +51,16 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact):
 
 
             # read files which containes metrics values
-            with io.open("out/Dataset_assessment_" + cancer + "_" + participant + "_TPR_" + A_data_id_TPR + ".json", mode='r', encoding="utf-8") as f:
+            with io.open("out/assessment_datasets/Dataset_assessment_" + cancer + "_" + participant + "_TPR_" + A_data_id_TPR + ".json", mode='r', encoding="utf-8") as f:
                 assess_file = json.load(f)
                 metric1 = assess_file["datalink"]["inline_data"]["value"]
 
-            with io.open("out/Dataset_assessment_" + cancer + "_" + participant + "_precision_" + A_data_id_precision + ".json", mode='r', encoding="utf-8") as f:
+            with io.open("out/assessment_datasets/Dataset_assessment_" + cancer + "_" + participant + "_precision_" + A_data_id_precision + ".json", mode='r', encoding="utf-8") as f:
                 assess_file = json.load(f)
                 metric2 = assess_file["datalink"]["inline_data"]["value"]
 
             inline_data["challenge_participants"].append( {
-                "tool_id": tool_id,
+                "tool_id": "TCGA:" + participant,
                 "metric_x": metric1,
                 "metric_y": metric2,
             })
@@ -76,7 +76,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact):
 
         # append reference and input datasets
         involved_datasets.append({
-                               "dataset_id": "OEBD002000000L",
+                               "dataset_id": "TCGA:2018-04-05_input",
                            })
         involved_datasets.append({
             "dataset_id": "TCGA:2018-04-05_" + cancer + "_M",
@@ -104,7 +104,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact):
                "rel_dataset_ids": involved_datasets,
             },
             "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_ids":["OEBC002"],
+            "community_ids":["OEBC001"],
             "challenge_ids": ["TCGA:2018-04-05_" + cancer],
             "dataset_contact_ids":[
                 "Eduard.Porta",
@@ -121,7 +121,7 @@ def run(cancer_types, long_names, mongo_tool_ids, tool_contact):
         filename = "Dataset_Aggregation_" + cancer + "_" + challenge_data_id + ".json"
         # print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -147,5 +147,10 @@ if __name__ == "__main__":
     with io.open("../tools_contacts.txt", mode='r', encoding="utf-8") as f:
         tool_contact = json.load(f)
 
+    # Assuring the output directory does exist
+    out_dir = "out/aggregation_datasets/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
 
-    run(cancer_types, long_names, mongo_tool_ids, tool_contact)
+
+    run(cancer_types, long_names, mongo_tool_ids, tool_contact, out_dir)

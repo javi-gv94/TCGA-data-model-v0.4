@@ -4,7 +4,7 @@ import pandas
 import id_generator
 
 
-def run(cancer_types, long_names):
+def run(cancer_types, long_names, out_dir):
 
     last_dataset = "000007S"
 
@@ -35,13 +35,13 @@ def run(cancer_types, long_names):
             },
             "depends_on":{
                "rel_dataset_ids":[
-                  {
-                     "dataset_id":"OEBD002000000L",
-                  }
-               ]
+                      {
+                         "dataset_id": "TCGA:2018-04-05_input",
+                      }
+                   ]
             },
             "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/Dataset",
-            "community_ids":["OEBC002"],
+            "community_ids":["OEBC001"],
             "dataset_contact_ids":[
                "Matthew.Bailey",
                "Eduard.Porta",
@@ -52,7 +52,7 @@ def run(cancer_types, long_names):
         filename = "Dataset_Metrics_Ref_" + cancer + "_" + data_id + ".json"
         # print filename
 
-        with open("out/" + filename, 'w') as f:
+        with open(out_dir + filename, 'w') as f:
             json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -70,4 +70,9 @@ if __name__ == "__main__":
     for index, row in data.iterrows():
         long_names[row[0]] = row[1]
 
-    run(cancer_types, long_names)
+    # Assuring the output directory does exist
+    out_dir = "out/reference_datasets/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
+    run(cancer_types, long_names, out_dir)

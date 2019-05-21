@@ -3,7 +3,7 @@ import io, json
 import id_generator
 
 
-def run(cancer_types, mongo_ids):
+def run(cancer_types, mongo_ids, out_dir):
 
     last_challenge = "0000000"
     last_test_event = "0000000"
@@ -36,10 +36,10 @@ def run(cancer_types, mongo_ids):
                 "_id": "TCGA:2018-04-05_" + cancer + "_testEvent_" + participant,
                 "_schema":"https://www.elixir-europe.org/excelerate/WP2/json-schemas/1.0/TestAction",
                 "action_type":"TestEvent",
-                "tool_id":tool_id,
+                "tool_id":"TCGA:" + participant,
                 "involved_datasets":[
                    {
-                      "dataset_id": "OEBD002000000L",
+                      "dataset_id": "TCGA:2018-04-05_input",
                       "role": "incoming"
                    },
                    {
@@ -64,7 +64,7 @@ def run(cancer_types, mongo_ids):
             filename = "TestEvent_" + cancer + "_" + participant + "_" + Tevent_id + ".json"
             # print filename
 
-            with open("out/" + filename, 'w') as f:
+            with open(out_dir + filename, 'w') as f:
                 json.dump(info, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
@@ -78,5 +78,10 @@ if __name__ == "__main__":
     with io.open("../mongo_tools_ids.txt", mode='r', encoding="utf-8") as f:
         mongo_ids = json.load(f)
 
+    # Assuring the output directory does exist
+    out_dir = "out/test_events/"
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
 
-    run(cancer_types, mongo_ids)
+
+    run(cancer_types, mongo_ids,out_dir)
